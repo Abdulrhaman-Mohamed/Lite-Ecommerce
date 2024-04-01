@@ -1,0 +1,16 @@
+<main class="h-screen flex justify-center items-center">
+    <form (submit)="login()"  class=" rounded bg-black bg-opacity-10 w-2/4 flex flex-col py-6 gap-3">
+
+            <p class="text-4xl font-bold text-center">Login Form</p>
+
+        <div class=" w-11/12 m-auto">
+            <app-custom-input  label="Email" [validators]="emailValidators" (ValidationChecker)="checkEmail($event)" (valueChange)="getEmail($event)"></app-custom-input>
+        </div>
+        <div class=" w-11/12 m-auto">
+            <app-custom-input  label="Password" [validators]="passwordValidators"  type="password" (ValidationChecker)="checkPassword($event)" (valueChange)="getPassword($event)"></app-custom-input>
+        </div>
+        <button  class=" w-1/2 m-auto ">Login</button>
+        <button type="button" (click)="getP()" class=" w-1/2 m-auto ">get</button>
+    </form>
+</main>
+

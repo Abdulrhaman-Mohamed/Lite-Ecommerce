@@ -12,7 +12,18 @@ namespace LiteEcommerceApi
     {
         public static void Main(string[] args)
         {
+            const string policyName = "CorsPolicy";
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: policyName, builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                    .AllowCredentials()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
 
 
             //Connect Database
@@ -68,6 +79,8 @@ namespace LiteEcommerceApi
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseCors(policyName);
 
 
             app.MapControllers();

@@ -43,8 +43,6 @@ namespace LiteEcommerceApi.Controllers
 
             var cookieOptions = new CookieOptions
             {
-                HttpOnly = true,
-                Secure = true, 
                 Expires = DateTime.UtcNow.AddDays(10).ToLocalTime()
             };
 

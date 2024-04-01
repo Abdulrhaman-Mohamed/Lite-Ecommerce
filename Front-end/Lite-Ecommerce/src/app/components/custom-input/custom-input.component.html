@@ -1,0 +1,34 @@
+@if(type == 'text'){
+<mat-form-field  appearance="fill" class="w-full">
+  <mat-label>{{ label }}</mat-label>
+  <input (input)="send()"    matInput [formControl]="control"  placeholder="Placeholder" />
+  @if(Hint){
+  <mat-hint>Requird <span class="text-red-500">*</span></mat-hint>
+  }
+  @if(control.hasError('required') && control.touched){
+    <mat-error>This field is required.</mat-error>
+  }
+  @if(control.hasError('email') && (control.touched) ){
+    <mat-error>Invilad Email</mat-error>
+  } 
+</mat-form-field>
+
+}
+
+
+@if(type == 'password'){
+
+    <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Enter your password</mat-label>
+        <input (input)="send()" [formControl]="control" matInput [type]="hide ? 'password' : 'text'">
+        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        @if(control.hasError('required') && control.touched){
+            <mat-error>This field is required.</mat-error>
+          }
+          @if(control.hasError('pattern') && control.touched){
+            <mat-error>Minimum eight characters, at least one uppercase letter, one lowercase letter, and one number</mat-error>
+          }
+      </mat-form-field>
+}
