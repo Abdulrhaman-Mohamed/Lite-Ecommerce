@@ -53,7 +53,7 @@ namespace LiteEcommerceApi.Services
 
             if (await dbContext.Users.Where(user => user.Email == model.Email).FirstOrDefaultAsync() is not null) return new AuthModel { Message = "Email is used Before" };
 
-            if (await dbContext.Users.Where(user => user.Username == model.Username).FirstOrDefaultAsync() is not null) return new AuthModel { Username = "Username is used Before" };
+            if (await dbContext.Users.Where(user => user.Username == model.Username).FirstOrDefaultAsync() is not null) return new AuthModel { Message = "Username is used Before" };
 
             var User = new User
             {

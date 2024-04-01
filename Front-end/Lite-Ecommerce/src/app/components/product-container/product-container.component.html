@@ -1,0 +1,8 @@
+<main>
+  <p class="text-center text-4xl font-bold">Our Products</p>
+  <div class="w-4/5 m-auto flex justify-center items-center gap-6 flex-wrap">
+    @for (product of products; track product.id) {
+    <app-product-card [product]="product"></app-product-card>
+    }
+  </div>
+</main>

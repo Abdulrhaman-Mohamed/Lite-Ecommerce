@@ -21,8 +21,9 @@ namespace LiteEcommerceApi.Services
             try
             {
                 var imagePath="";
+                string filename = "";
                 if (product.Image is not null) {
-                    string filename = Guid.NewGuid().ToString() + "_" + product.Image.FileName;
+                     filename = Guid.NewGuid().ToString() + "_" + product.Image.FileName;
 
                     imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/", filename);
 
@@ -36,7 +37,7 @@ namespace LiteEcommerceApi.Services
                     ProductName = product.ProductName,
                     Discount = product.Discount,
                     Quantity = product.Quantity,
-                    Image=imagePath,
+                    Image= filename,
                     CategoryId = product.Category
                 };
 

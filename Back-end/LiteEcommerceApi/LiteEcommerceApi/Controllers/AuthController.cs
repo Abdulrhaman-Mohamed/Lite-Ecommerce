@@ -25,10 +25,10 @@ namespace LiteEcommerceApi.Controllers
 
             var Creation = await auth.Registeration(register);
 
-            if(!Creation.IsAuthenticated) return BadRequest(Creation.Message);
+            if (!Creation.IsAuthenticated) return BadRequest(Creation.Message);
 
 
-            return Ok(Creation.Message);
+            return Ok(new {Creation.Message});
         }
 
 

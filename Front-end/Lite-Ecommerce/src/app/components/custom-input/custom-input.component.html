@@ -10,7 +10,13 @@
   }
   @if(control.hasError('email') && (control.touched) ){
     <mat-error>Invilad Email</mat-error>
-  } 
+  }
+  @if(control.hasError('minlength') && control.touched){
+    <mat-error>This field has minlength {{control.errors?.['minlength'].requiredLength }}</mat-error>
+  }
+  @if(control.hasError('maxlength') && control.touched){
+    <mat-error>This field has maxLength {{control.errors?.['maxlength'].requiredLength }}</mat-error>
+  }  
 </mat-form-field>
 
 }
@@ -24,11 +30,14 @@
         <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        @if(Hint){
+          <mat-hint>Requird <span class="text-red-500">*</span></mat-hint>
+          }
         @if(control.hasError('required') && control.touched){
             <mat-error>This field is required.</mat-error>
           }
           @if(control.hasError('pattern') && control.touched){
-            <mat-error>Minimum eight characters, at least one uppercase letter, one lowercase letter, and one number</mat-error>
+            <mat-error >Minimum eight characters, at least one uppercase letter, one lowercase letter, and one number</mat-error>
           }
       </mat-form-field>
 }

@@ -1,0 +1,36 @@
+<mat-card class="example-card" class="w-[250px] h-[350px]">
+    @if (product.image) {
+        <img
+        mat-card-image
+        class="w-[100px] object-cover m-auto"
+        src="assets/{{product.image}}"
+      />
+    }@else {
+        <img
+        mat-card-image
+        class="w-[100px] object-cover m-auto" 
+        src="assets/images/Product.png"
+      />}
+
+  <mat-card-content>
+    <div class="flex flex-col justify-center gap-1">
+      <div>
+        <p class="font-bold text-lg pt-4   inline-block">{{product.productName}}</p>
+        <span class="ml-1 inline-block">
+          <mat-chip> {{product.category.name}} </mat-chip>
+        </span>
+      </div>
+      @if (product.discount > 0) {
+          <span>Price: <span class="line-through">{{product.price}}$</span> <span class=" font-bold mx-1">{{product.price -product.discount}}$</span></span>
+      }@else {
+            <span>Price: <span class=" font-bold mx-1">{{product.price}}$</span></span>
+      }
+      <span>In Stock: <span class=" font-bold mx-1">{{product.quantity}}</span></span>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+
+    <button mat-button><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart" class=" text-blue-500"></mat-icon></button>
+    <button mat-button><mat-icon aria-hidden="false" aria-label="Example home icon"  fontIcon="favorite" class=" text-red-500"></mat-icon></button>
+  </mat-card-actions>
+</mat-card>

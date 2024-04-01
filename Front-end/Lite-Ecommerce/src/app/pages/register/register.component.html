@@ -1,1 +1,44 @@
-<p>register works!</p>
+<main class="h-screen flex justify-center items-center">
+  <form
+    (submit)="register($event)"
+    class="rounded bg-black bg-opacity-10 w-2/4 flex flex-col py-6 gap-3"
+  >
+    <p class="text-4xl font-bold text-center">SignUp</p>
+
+    <div class="w-11/12 m-auto">
+      <app-custom-input
+        label="Username"
+        [validators]="userNameValidators"
+        (ValidationChecker)="checkUserName($event)"
+        (valueChange)="getUserName($event)"
+        [Hint]="true"
+      ></app-custom-input>
+    </div>
+
+    <div class="w-11/12 m-auto">
+      <app-custom-input
+        label="Email"
+        [validators]="emailValidators"
+        (ValidationChecker)="checkEmail($event)"
+        (valueChange)="getEmail($event)"
+        [Hint]="true"
+
+      ></app-custom-input>
+    </div>
+    <div class="w-11/12 m-auto">
+      <app-custom-input
+        label="Password"
+        [validators]="passwordValidators"
+        type="password"
+        (ValidationChecker)="checkPassword($event)"
+        (valueChange)="getPassword($event)"
+        [Hint]="true"
+
+      ></app-custom-input>
+    </div>
+    <button   mat-stroked-button color="primary" class="w-1/2 m-auto my-3">
+      Singup
+    </button>
+    <!-- <button type="button" (click)="getP()" class=" w-1/2 m-auto ">get</button> -->
+  </form>
+</main>

@@ -9,8 +9,8 @@
         <div class=" w-11/12 m-auto">
             <app-custom-input  label="Password" [validators]="passwordValidators"  type="password" (ValidationChecker)="checkPassword($event)" (valueChange)="getPassword($event)"></app-custom-input>
         </div>
-        <button  class=" w-1/2 m-auto ">Login</button>
-        <button type="button" (click)="getP()" class=" w-1/2 m-auto ">get</button>
+        <button mat-stroked-button color="primary"  class=" w-1/2 m-auto ">Login</button>
+        <!-- <button type="button" (click)="getP()" class=" w-1/2 m-auto ">get</button> -->
     </form>
 </main>
 
