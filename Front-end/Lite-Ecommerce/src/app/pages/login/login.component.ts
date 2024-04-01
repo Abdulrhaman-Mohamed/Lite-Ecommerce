@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
-import { CustomButtonComponent } from '../../components/custom-button/custom-button.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
@@ -8,17 +7,20 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, ValidatorFn, 
 import { AuthService } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [CustomInputComponent,
-    CustomButtonComponent,
     ReactiveFormsModule,
     FormsModule ,
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
+CommonModule
+    
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -37,7 +39,7 @@ export class LoginComponent implements OnInit {
     },
   };
 
-  constructor(private fb: FormBuilder , private _authService: AuthService , private _Router:Router) {
+  constructor( private _authService: AuthService , private _Router:Router) {
 
   }
 
@@ -68,7 +70,7 @@ export class LoginComponent implements OnInit {
           console.log(error);
         },
         complete: () => {
-          this._Router.navigate(['/home']);
+          this._Router.navigate(['/']);
         }
       })
     }
